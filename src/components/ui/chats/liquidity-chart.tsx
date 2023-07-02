@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import { format } from 'date-fns';
-import { AreaChart, Area, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { Area, AreaChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts';
+
 import { LiquidityData } from '@/data/static/liquidity';
+import { format } from 'date-fns';
+import { useState } from 'react';
 
 function CustomAxis({ x, y, payload }: any) {
   const date = format(new Date(payload.value * 1000), 'd');
@@ -25,7 +26,13 @@ const numberAbbr = (number: any) => {
   if (number >= 1e12) return +(number / 1e12).toFixed(1) + 'T';
 };
 
-export default function LiquidityChart() {
+export default function LiquidityChart({
+  colors = ['#7645D9', '#bc9aff'],
+  title = 'Liquidity',
+}: {
+  colors?: string[];
+  title?: string;
+}) {
   let [date, setDate] = useState(1624147200);
   let [liquidity, setLiquidity] = useState('547792029');
   const formattedDate = format(new Date(date * 1000), 'MMMM d, yyyy');
@@ -34,7 +41,7 @@ export default function LiquidityChart() {
   return (
     <div className="rounded-lg bg-white p-6 shadow-card dark:bg-light-dark sm:p-8">
       <h3 className="mb-1.5 text-sm uppercase tracking-wider text-gray-600 dark:text-gray-400 sm:mb-2 sm:text-base">
-        Liquidity
+        {title}
       </h3>
       <div className="mb-1 text-base font-medium text-gray-900 dark:text-white sm:text-xl">
         {dailyLiquidity}
@@ -72,8 +79,8 @@ export default function LiquidityChart() {
                 x2="0"
                 y2="1"
               >
-                <stop offset="5%" stopColor="#bc9aff" stopOpacity={0.5} />
-                <stop offset="100%" stopColor="#7645D9" stopOpacity={0} />
+                <stop offset="5%" stopColor={colors[1]} stopOpacity={0.5} />
+                <stop offset="100%" stopColor={colors[0]} stopOpacity={0} />
               </linearGradient>
             </defs>
             <XAxis
@@ -84,11 +91,11 @@ export default function LiquidityChart() {
               interval={0}
               tickMargin={5}
             />
-            <Tooltip content={<></>} cursor={{ stroke: '#7645D9' }} />
+            <Tooltip content={<></>} cursor={{ stroke: colors[0] }} />
             <Area
               type="linear"
               dataKey="dailyVolumeUSD"
-              stroke="#7645D9"
+              stroke={colors[0]}
               strokeWidth={1.5}
               fill="url(#liquidity-gradient)"
             />

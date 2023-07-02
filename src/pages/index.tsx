@@ -5,6 +5,7 @@ import { LAYOUT_OPTIONS } from '@/lib/constants';
 import MinimalScreen from '@/components/screens/minimal-screen';
 import ModernScreen from '@/components/screens/modern-screen';
 import type { NextPageWithLayout } from '@/types';
+import PoppyScreen from '@/components/screens/poppy-screen';
 import RetroScreen from '@/components/screens/retro-screen';
 import RootLayout from '@/layouts/_root-layout';
 import { useLayout } from '@/lib/hooks/use-layout';
@@ -22,7 +23,7 @@ const HomePage: NextPageWithLayout<
 
   // render poppy screen/page
   if (layout === LAYOUT_OPTIONS.POPPY) {
-    return <MinimalScreen />;
+    return <PoppyScreen />;
   }
 
   // render minimal screen/page
