@@ -1,6 +1,7 @@
 import ActiveLink from '@/components/ui/links/active-link';
 import { FlashIcon } from '@/components/icons/flash';
 import Hamburger from '@/components/ui/hamburger';
+import LanguageButton from '@/components/header/language-button';
 import Logo from '@/components/ui/poppy-logo';
 import { MenuItems } from '@/layouts/sidebar/_layout-menu-poppy';
 import SearchButton from '@/components/search/button';
@@ -30,7 +31,7 @@ function HeaderRightArea() {
   return (
     <div className="order-last flex shrink-0 items-center">
       <div className="ltr:mr-3.5 rtl:ml-3.5 ltr:sm:mr-5 rtl:sm:ml-5 xl:hidden">
-        <SearchButton
+        <LanguageButton
           color="white"
           className="shadow-main dark:border dark:border-solid dark:border-gray-700 dark:bg-light-dark dark:text-white"
         />
@@ -39,10 +40,13 @@ function HeaderRightArea() {
       <div className="hidden gap-6 lg:flex 2xl:gap-8">
         {isMounted && ['xs', 'sm', 'md', 'lg'].indexOf(breakpoint) == -1 && (
           <div>
-            <SearchButton variant="transparent" className="dark:text-white" />
+            <LanguageButton
+              variant="transparent"
+              className="!text-black dark:text-white"
+            />
           </div>
         )}
-        <NotificationButton />
+        {/* <NotificationButton /> */}
         <WalletConnect btnClassName="!bg-[#6CA369] rounded-xl capitalize !text-lg" />
       </div>
 
