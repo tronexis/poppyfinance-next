@@ -43,7 +43,7 @@ function HeaderRightArea() {
           </div>
         )}
         <NotificationButton />
-        <WalletConnect btnClassName="bg-[#6CA369] rounded-xl capitalize !text-lg" />
+        <WalletConnect btnClassName="!bg-[#6CA369] rounded-xl capitalize !text-lg" />
       </div>
 
       <div className="flex items-center lg:hidden">
