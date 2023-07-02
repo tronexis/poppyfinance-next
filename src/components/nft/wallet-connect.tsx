@@ -1,14 +1,14 @@
-import cn from 'classnames';
-import Button from '@/components/ui/button';
-import { WalletContext } from '@/lib/hooks/use-connect';
-import { Menu } from '@/components/ui/menu';
-import { Transition } from '@/components/ui/transition';
 import ActiveLink from '@/components/ui/links/active-link';
+import Button from '@/components/ui/button';
 import { ChevronForward } from '@/components/icons/chevron-forward';
+import { Menu } from '@/components/ui/menu';
 import { PowerIcon } from '@/components/icons/power';
-import { useModal } from '@/components/modal-views/context';
+import { Transition } from '@/components/ui/transition';
+import { WalletContext } from '@/lib/hooks/use-connect';
+import cn from 'classnames';
+import { useCardano } from 'use-cardano';
 import { useContext } from 'react';
-import {useCardano} from 'use-cardano';
+import { useModal } from '@/components/modal-views/context';
 
 export default function WalletConnect({
   btnClassName,
@@ -18,7 +18,7 @@ export default function WalletConnect({
   anchorClassName?: string;
 }) {
   const { openModal } = useModal();
-  const { walletProvider, setWalletProvider, account } = useCardano()
+  const { walletProvider, setWalletProvider, account } = useCardano();
   return (
     <>
       {account.address ? (
@@ -39,7 +39,7 @@ export default function WalletConnect({
                     <div className="border-b border-dashed border-gray-200 p-3 dark:border-gray-700">
                       <ActiveLink
                         href="/profile"
-                        className="flex items-center gap-3 rounded-lg py-2.5 px-3 text-sm font-medium text-gray-900 transition hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                        className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-900 transition hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
                       >
                         <span className="h-8 w-8 rounded-full border-2 border-solid border-white bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 dark:border-gray-700"></span>
                         <span className="grow uppercase">
@@ -64,7 +64,7 @@ export default function WalletConnect({
                         </div>
                         <div className="mt-3 font-medium uppercase tracking-wider text-gray-900 dark:text-white">
                           {/* FIXME: show ADA balance?*/}
-                          100 ETH 
+                          100 ETH
                         </div>
                       </div>
                     </Menu.Item>
@@ -72,9 +72,9 @@ export default function WalletConnect({
                   <Menu.Item>
                     <div className="p-3">
                       <div
-                        className="flex cursor-pointer items-center gap-3 rounded-lg py-2.5 px-3 text-sm font-medium text-gray-900 transition hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
+                        className="flex cursor-pointer items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-gray-900 transition hover:bg-gray-50 dark:text-white dark:hover:bg-gray-800"
                         onClick={() => {
-                          setWalletProvider(undefined)
+                          setWalletProvider(undefined);
                         }}
                       >
                         <PowerIcon />
@@ -100,7 +100,7 @@ export default function WalletConnect({
           onClick={() => openModal('WALLET_CONNECT_VIEW')}
           className={cn('shadow-main hover:shadow-large', btnClassName)}
         >
-          { walletProvider ? "CONNECTED" : "CONNECT" }
+          {walletProvider ? 'Connected' : 'Connect Wallet'}
         </Button>
       )}
     </>

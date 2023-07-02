@@ -7,8 +7,10 @@
     --color-brand: 17 24 39;
   }
   html {
-    @apply bg-body font-body;
+    /* @apply bg-body font-body; */
+    @apply bg-primary-light;
     -webkit-tap-highlight-color: transparent;
+    font-family: 'Baloo 2', cursive;
   }
 
   html.dark {
@@ -79,23 +81,23 @@ Styles for Swiper slider
 }
 
 .swiper-scrollbar {
-  @apply relative bg-gray-200 rounded dark:bg-gray-600;
+  @apply relative rounded bg-gray-200 dark:bg-gray-600;
 }
 
-.swiper-horizontal>.swiper-scrollbar {
-  @apply z-10 mt-4 mb-0 h-0.5 w-full sm:mt-6;
+.swiper-horizontal > .swiper-scrollbar {
+  @apply z-10 mb-0 mt-4 h-0.5 w-full sm:mt-6;
 }
 
-.swiper-vertical>.swiper-scrollbar {
-  @apply absolute top-0 right-1 z-10 h-full w-0.5;
+.swiper-vertical > .swiper-scrollbar {
+  @apply absolute right-1 top-0 z-10 h-full w-0.5;
 }
 
 .swiper-scrollbar-drag {
-  @apply relative bg-gray-900 rounded dark:bg-light-dark;
+  @apply relative rounded bg-gray-900 dark:bg-light-dark;
 }
 
 .swiper-horizontal .swiper-scrollbar-drag {
-  @apply top-[-1px] left-0 h-[3px] w-full shadow-sm;
+  @apply left-0 top-[-1px] h-[3px] w-full shadow-sm;
 }
 
 .swiper-vertical .swiper-scrollbar-drag {
@@ -115,7 +117,7 @@ Styles for Swiper slider
   margin-top: -12px;
 }
 
-.transaction-table>thead tr>th {
+.transaction-table > thead tr > th {
   text-align: left;
 }
 
@@ -159,8 +161,8 @@ Styles for Swiper slider
 .swiper-pagination-bullet {
   --swiper-pagination-bullet-width: 8px;
   --swiper-pagination-bullet-height: 8px;
-  --swiper-pagination-bullet-inactive-color: #E5E7EB;
-  --swiper-pagination-color: #9CA3AF;
+  --swiper-pagination-bullet-inactive-color: #e5e7eb;
+  --swiper-pagination-color: #9ca3af;
   --swiper-pagination-bullet-inactive-opacity: 1;
   border-radius: 10px;
 }
@@ -174,23 +176,23 @@ Styles for Swiper slider
   --swiper-pagination-bullet-width: 16px;
 }
 
-.swiper-horizontal>.swiper-pagination-bullets,
+.swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal,
 .swiper-pagination-custom,
 .swiper-pagination-fraction {
   bottom: 0;
 }
 
-.recharts-tooltip-wrapper .recharts-default-tooltip{
-  @apply !px-4 !bg-white dark:!bg-light-dark shadow-card rounded-sm !border-0;
+.recharts-tooltip-wrapper .recharts-default-tooltip {
+  @apply rounded-sm !border-0 !bg-white !px-4 shadow-card dark:!bg-light-dark;
 }
 
-.recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-item{
-  @apply text-xs uppercase lg:text-sm dark:!text-gray-400;
+.recharts-tooltip-wrapper .recharts-default-tooltip .recharts-tooltip-item {
+  @apply text-xs uppercase dark:!text-gray-400 lg:text-sm;
 }
 
 .tippy-box {
-  @apply !bg-white dark:!bg-gray-600 !text-brand dark:!text-white shadow-card rounded-sm !border-0;
+  @apply rounded-sm !border-0 !bg-white !text-brand shadow-card dark:!bg-gray-600 dark:!text-white;
 }
 
 .tippy-arrow {
@@ -198,10 +200,9 @@ Styles for Swiper slider
 }
 
 @media (max-width: 767px) {
-
   .pricing-table-head th:is(:first-child, :nth-child(2), :nth-child(3)),
   .pricing-table-body td:is(:first-child, :nth-child(2), :nth-child(3)) {
-    @apply ltr:pl-[10px] rtl:pr-[10px] ltr:pr-0 rtl:pl-0 !sticky ltr:left-0 rtl:right-0 z-10;
+    @apply !sticky z-10 ltr:left-0 ltr:pl-[10px] ltr:pr-0 rtl:right-0 rtl:pl-0 rtl:pr-[10px];
   }
 
   .pricing-table-head th:first-child,
@@ -214,11 +215,11 @@ Styles for Swiper slider
   .pricing-table-body td:nth-child(2) {
     min-width: 24px !important;
   }
-  
+
   .pricing-table-head th:is(:first-child, :nth-child(2), :nth-child(3)),
-    .pricing-table-body td:is(:first-child, :nth-child(2), :nth-child(3)) {
-      @apply bg-white dark:bg-light-dark hover:bg-[#F3F4F6] dark:hover:bg-gray-700
-    }
+  .pricing-table-body td:is(:first-child, :nth-child(2), :nth-child(3)) {
+    @apply bg-white hover:bg-[#F3F4F6] dark:bg-light-dark dark:hover:bg-gray-700;
+  }
 
   .pricing-table-head th:first-child {
     padding-left: 0;
@@ -227,7 +228,7 @@ Styles for Swiper slider
 
   .pricing-table-head th:nth-child(2),
   .pricing-table-body td:nth-child(2) {
-    @apply p-0 ltr:left-[28px] rtl:right-[28px] flex justify-center items-center;
+    @apply flex items-center justify-center p-0 ltr:left-[28px] rtl:right-[28px];
   }
 
   .pricing-table-head th:nth-child(2) {
@@ -236,7 +237,7 @@ Styles for Swiper slider
 
   .pricing-table-head th:nth-child(3),
   .pricing-table-body td:nth-child(3) {
-    @apply py-5 px-0 !w-[120px] ltr:left-[50px] rtl:right-[50px] ltr:shadow-[8px_9px_16px_rgba(17,24,39,0.05)] rtl:shadow-[-8px_9px_16px_rgba(17,24,39,0.05)];
+    @apply !w-[120px] px-0 py-5 ltr:left-[50px] ltr:shadow-[8px_9px_16px_rgba(17,24,39,0.05)] rtl:right-[50px] rtl:shadow-[-8px_9px_16px_rgba(17,24,39,0.05)];
   }
 
   .pricing-table-head th:nth-child(4),
@@ -250,7 +251,7 @@ Styles for Swiper slider
     --swiper-pagination-bullet-width: 10px;
     --swiper-pagination-bullet-height: 10px;
   }
-  
+
   .swiper-pagination-bullet-active {
     --swiper-pagination-bullet-width: 20px;
   }

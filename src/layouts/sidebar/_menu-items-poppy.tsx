@@ -17,7 +17,7 @@ export const menuItems = [
     href: routes.home,
   },
   {
-    name: 'Live Pricing',
+    name: 'Market',
     icon: <LivePricing />,
     href: routes.livePricing,
   },
@@ -36,50 +36,50 @@ export const menuItems = [
     icon: <PoolIcon />,
     href: routes.liquidity,
   },
+  // {
+  //   name: 'NFTs',
+  //   icon: <CompassIcon />,
+  //   href: routes.search,
+  //   dropdownItems: [
+  //     {
+  //       name: 'Explore NFTs',
+  //       icon: <CompassIcon />,
+  //       href: routes.search,
+  //     },
+  //     {
+  //       name: 'Create NFT',
+  //       icon: <PlusCircle />,
+  //       href: routes.createNft,
+  //     },
+  //     {
+  //       name: 'NFT Details',
+  //       icon: <DiskIcon />,
+  //       href: routes.nftDetails,
+  //     },
+  //   ],
+  // },
   {
-    name: 'NFTs',
-    icon: <CompassIcon />,
-    href: routes.search,
-    dropdownItems: [
-      {
-        name: 'Explore NFTs',
-        icon: <CompassIcon />,
-        href: routes.search,
-      },
-      {
-        name: 'Create NFT',
-        icon: <PlusCircle />,
-        href: routes.createNft,
-      },
-      {
-        name: 'NFT Details',
-        icon: <DiskIcon />,
-        href: routes.nftDetails,
-      },
-    ],
-  },
-  {
-    name: 'Profile',
+    name: 'My Info',
     icon: <ProfileIcon />,
     href: routes.profile,
   },
-  {
-    name: 'Vote',
-    icon: <VoteIcon />,
-    href: routes.vote,
-    dropdownItems: [
-      {
-        name: 'Explore',
-        href: routes.vote,
-      },
-      {
-        name: 'Vote with pools',
-        href: routes.proposals,
-      },
-      {
-        name: 'Create proposal',
-        href: routes.createProposal,
-      },
-    ],
-  },
+  // {
+  //   name: 'Vote',
+  //   icon: <VoteIcon />,
+  //   href: routes.vote,
+  //   dropdownItems: [
+  //     {
+  //       name: 'Explore',
+  //       href: routes.vote,
+  //     },
+  //     {
+  //       name: 'Vote with pools',
+  //       href: routes.proposals,
+  //     },
+  //     {
+  //       name: 'Create proposal',
+  //       href: routes.createProposal,
+  //     },
+  //   ],
+  // },
 ];

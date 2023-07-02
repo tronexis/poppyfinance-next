@@ -1,29 +1,34 @@
 import { Fragment, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useTheme } from 'next-themes';
-import cn from 'classnames';
-import { Dialog } from '@/components/ui/dialog';
-import { Transition } from '@/components/ui/transition';
+
 import Button from '@/components/ui/button';
-import { RadioGroup } from '@/components/ui/radio-group';
-import Scrollbar from '@/components/ui/scrollbar';
-import { useLocalStorage } from '@/lib/hooks/use-local-storage';
-import { useDirection } from '@/lib/hooks/use-direction';
-import { useThemeColor } from '@/lib/hooks/use-theme-color';
-import { useSettingsDrawer } from '@/components/settings/settings-context';
-import { Close } from '@/components/icons/close';
-import { Sun } from '@/components/icons/sun';
-import { Moon } from '@/components/icons/moon';
-import { LeftAlign } from '@/components/icons/left-align';
-import { RightAlign } from '@/components/icons/right-align';
-import { ModernLayoutIcon } from '@/components/icons/modern-layout-icon';
-import { RetroLayoutIcon } from '@/components/icons/retro-layout-icon';
-import { MinimalLayoutIcon } from '@/components/icons/minimal-layout-icon';
 import { ClassicLayoutIcon } from '@/components/icons/classic-layout-icon';
-import { useLayout } from '@/lib/hooks/use-layout';
+import { Close } from '@/components/icons/close';
+import { Dialog } from '@/components/ui/dialog';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
+import { LeftAlign } from '@/components/icons/left-align';
+import { MinimalLayoutIcon } from '@/components/icons/minimal-layout-icon';
+import { ModernLayoutIcon } from '@/components/icons/modern-layout-icon';
+import { Moon } from '@/components/icons/moon';
+import { RadioGroup } from '@/components/ui/radio-group';
+import { RetroLayoutIcon } from '@/components/icons/retro-layout-icon';
+import { RightAlign } from '@/components/icons/right-align';
+import Scrollbar from '@/components/ui/scrollbar';
+import { Sun } from '@/components/icons/sun';
+import { Transition } from '@/components/ui/transition';
+import cn from 'classnames';
+import { useDirection } from '@/lib/hooks/use-direction';
+import { useLayout } from '@/lib/hooks/use-layout';
+import { useLocalStorage } from '@/lib/hooks/use-local-storage';
+import { useRouter } from 'next/router';
+import { useSettingsDrawer } from '@/components/settings/settings-context';
+import { useTheme } from 'next-themes';
+import { useThemeColor } from '@/lib/hooks/use-theme-color';
 
 const ColorPreset = [
+  {
+    label: 'Primary',
+    value: '#FFD17C',
+  },
   {
     label: 'Black',
     value: '#323743',

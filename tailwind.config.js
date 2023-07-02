@@ -23,6 +23,8 @@ module.exports = {
         dark: '#0D1321',
         'light-dark': '#171e2e',
         'sidebar-body': '#F8FAFC',
+        primary: '#FFD17C',
+        'primary-light': '#FFF3C8',
       },
       spacing: {
         13: '3.375rem',
@@ -38,7 +40,10 @@ module.exports = {
         'calc-358': 'calc(100% - 358px)',
       },
       fontFamily: {
-        body: ['Fira Code', 'monospace'],
+        body: ['Baloo 2', 'cursive'],
+        baloo: ['Baloo 2', 'cursive'],
+        number: ['Fira Code', 'monospace'],
+        header: ['DM Sans', 'sans-serif'],
       },
       fontSize: {
         '13px': ['13px', '18px'],

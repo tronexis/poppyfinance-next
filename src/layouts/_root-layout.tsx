@@ -1,10 +1,14 @@
-import dynamic from 'next/dynamic';
-import { useLayout } from '@/lib/hooks/use-layout';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
 import Loader from '@/components/ui/loader';
+import dynamic from 'next/dynamic';
 import { useIsMounted } from '@/lib/hooks/use-is-mounted';
+import { useLayout } from '@/lib/hooks/use-layout';
+
 // dynamic imports
 const MinimalLayout = dynamic(() => import('@/layouts/_minimal'), {
+  loading: () => <FallbackLoader />,
+});
+const PoppyLayout = dynamic(() => import('@/layouts/_poppy'), {
   loading: () => <FallbackLoader />,
 });
 const ClassicLayout = dynamic(() => import('@/layouts/_classic'), {
@@ -34,6 +38,11 @@ export default function RootLayout({
 
   // fix the `Hydration failed because the initial UI does not match` issue
   if (!isMounted) return null;
+
+  // render poppy layout
+  if (layout === LAYOUT_OPTIONS.POPPY) {
+    return <PoppyLayout>{children}</PoppyLayout>;
+  }
 
   // render minimal layout
   if (layout === LAYOUT_OPTIONS.MINIMAL) {

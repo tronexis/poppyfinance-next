@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
-import { NextSeo } from 'next-seo';
-import ComparisonChart from '@/components/ui/chats/comparison-chart';
+
+import AuthorImage from '@/assets/images/author.jpg';
 import Avatar from '@/components/ui/avatar';
+import ComparisonChart from '@/components/ui/chats/comparison-chart';
+import { NextSeo } from 'next-seo';
 import OverviewChart from '@/components/ui/chats/overview-chart';
+import PriceFeedSlider from '@/components/ui/live-price-feed';
 import TopPools from '@/components/ui/top-pools';
+import TransactCoin from '@/components/ui/transact-coin';
 import TransactionTable from '@/components/transaction/transaction-table';
 import WalletCard from '@/components/ui/wallet-card';
-import TransactCoin from '@/components/ui/transact-coin';
-import PriceFeedSlider from '@/components/ui/live-price-feed';
 import { priceFeedData } from '@/data/static/price-feed';
 import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
+
 //images
-import AuthorImage from '@/assets/images/author.jpg';
 
 const topPoolsLimit = (breakpoint: string) => {
   switch (breakpoint) {
