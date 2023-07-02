@@ -7,6 +7,7 @@ import LiquidityChart from '../ui/chats/liquidity-chart';
 import { NextSeo } from 'next-seo';
 import OverviewChart from '@/components/ui/chats/overview-chart';
 import PriceFeedSlider from '@/components/ui/live-price-feed';
+import TopCurrencyTable from '../top-currency/currency-table';
 import TopPools from '@/components/ui/top-pools';
 import TransactCoin from '@/components/ui/transact-coin';
 import TransactionTable from '@/components/transaction/transaction-table';
@@ -49,6 +50,9 @@ export default function PoppyScreen() {
             colors={['#FFD17C', '#FFF3C8']}
           />
           <VolumeChart colors={['#FFD17C', '#FFF3C8']} />
+        </div>
+        <div className="my-8 sm:my-10">
+          <TopCurrencyTable colors={['#FFD17C', '#FFF3C8']} />
         </div>
         <div className="mt-6 grid grid-cols-1 items-start gap-6 md:grid-cols-2 lg:grid-cols-12">
           {/* <div className="flex items-center rounded-lg bg-white p-6 shadow-card dark:bg-light-dark md:col-span-1 md:h-[678px] lg:col-span-5 lg:h-[644px] xl:col-span-3 xl:row-start-1 xl:row-end-2 xl:h-auto 2xl:col-span-3 2xl:h-full 2xl:p-6 3xl:col-span-3 3xl:p-8">
