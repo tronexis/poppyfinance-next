@@ -22,7 +22,11 @@ const numberAbbr = (number: any) => {
   if (number >= 1e12) return +(number / 1e12).toFixed(1) + 'T';
 };
 
-export default function VolumeChart() {
+export default function VolumeChart({
+  colors = ['#1FC7D4', '#dffdff'],
+}: {
+  colors?: string[];
+}) {
   let [date, setDate] = useState(1624147200);
   let [volume, setVolume] = useState('547792029');
   const formattedDate = format(new Date(date * 1000), 'MMMM d, yyyy');
@@ -71,9 +75,9 @@ export default function VolumeChart() {
             />
             <Tooltip
               content={<></>}
-              cursor={{ strokeWidth: 0, fill: '#dffdff' }}
+              cursor={{ strokeWidth: 0, fill: colors[1] }}
             />
-            <Bar type="monotone" dataKey="dailyVolumeUSD" fill="#1FC7D4" />
+            <Bar type="monotone" dataKey="dailyVolumeUSD" fill={colors[0]} />
           </BarChart>
         </ResponsiveContainer>
       </div>
