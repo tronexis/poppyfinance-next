@@ -59,7 +59,8 @@ export function SortList({
         ) : (
           <Listbox.Button
             className={cn(
-              'flex h-11 w-full items-center justify-between gap-1 rounded-lg bg-gray-100 px-3 text-sm text-gray-900 dark:bg-gray-800 dark:text-white md:w-36 lg:w-40 xl:w-48',
+              'flex h-11 w-full items-center justify-between gap-1 rounded-lg px-3 text-sm text-gray-900 dark:bg-gray-800 dark:text-white md:w-36 lg:w-40 xl:w-48',
+              layout === LAYOUT_OPTIONS.POPPY ? 'bg-brand' : 'bg-gray-100',
               className
             )}
           >
@@ -100,6 +101,7 @@ export function SortList({
 }
 
 function Search() {
+  const { layout } = useLayout();
   return (
     <form
       className="relative flex w-full rounded-full lg:w-auto lg:basis-72 xl:w-48"
@@ -108,7 +110,12 @@ function Search() {
     >
       <label className="flex w-full items-center">
         <input
-          className="h-11 w-full appearance-none rounded-lg border-2 border-gray-200 bg-transparent py-1 text-sm tracking-tighter text-gray-900 outline-none transition-all placeholder:text-gray-600 focus:border-gray-900 ltr:pl-10 ltr:pr-5 rtl:pr-10 dark:border-gray-600 dark:text-white dark:placeholder:text-gray-500 dark:focus:border-gray-500"
+          className={cn(
+            'h-11 w-full appearance-none rounded-lg border-2 py-1 text-sm tracking-tighter text-gray-900 outline-none transition-all placeholder:text-gray-600 focus:border-gray-900 ltr:pl-10 ltr:pr-5 rtl:pr-10 dark:border-gray-600 dark:text-white dark:placeholder:text-gray-500 dark:focus:border-gray-500',
+            layout === LAYOUT_OPTIONS.POPPY
+              ? 'border-black bg-brand/30'
+              : 'border-gray-200 bg-transparent'
+          )}
           placeholder="Search farms"
           autoComplete="off"
         />
@@ -205,7 +212,8 @@ export default function Farms() {
         layout === LAYOUT_OPTIONS.POPPY ? 'mt-4' : ''
       )}
     >
-      {layout !== LAYOUT_OPTIONS.POPPY && (
+      {/* {layout !== LAYOUT_OPTIONS.POPPY && ( */}
+      {
         <div
           className={cn(
             'mb-6 flex flex-col justify-between gap-4',
@@ -215,30 +223,40 @@ export default function Farms() {
           )}
         >
           <div className="flex items-center justify-between gap-4">
-            <Status />
-            <div
-              className={cn(
-                layout === LAYOUT_OPTIONS.RETRO ? 'lg:hidden' : 'md:hidden'
-              )}
-            >
-              <StackedSwitch />
-            </div>
+            {layout === LAYOUT_OPTIONS.POPPY ? (
+              <h2 className="shrink-0 pl-[10px] text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:pl-0 2xl:text-xl 3xl:text-2xl">
+                Current Farms
+              </h2>
+            ) : (
+              <Status />
+            )}
+            {layout !== LAYOUT_OPTIONS.POPPY && (
+              <div
+                className={cn(
+                  layout === LAYOUT_OPTIONS.RETRO ? 'lg:hidden' : 'md:hidden'
+                )}
+              >
+                <StackedSwitch />
+              </div>
+            )}
           </div>
 
           <div className="flex items-center justify-between gap-4 lg:gap-8">
-            <div
-              className={cn(
-                'hidden shrink-0 ',
-                layout === LAYOUT_OPTIONS.RETRO ? 'lg:block' : 'md:block'
-              )}
-            >
-              <StackedSwitch />
-            </div>
+            {layout !== LAYOUT_OPTIONS.POPPY && (
+              <div
+                className={cn(
+                  'hidden shrink-0 ',
+                  layout === LAYOUT_OPTIONS.RETRO ? 'lg:block' : 'md:block'
+                )}
+              >
+                <StackedSwitch />
+              </div>
+            )}
             <Search />
             <SortList sortData={sort} />
           </div>
         </div>
-      )}
+      }
 
       <div className="mb-3 hidden grid-cols-3 gap-6 rounded-lg bg-white shadow-card dark:bg-light-dark sm:grid lg:grid-cols-5">
         <span className="px-6 py-6 text-sm tracking-wider text-gray-500 dark:text-gray-300">
