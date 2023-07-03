@@ -1,19 +1,19 @@
-import type { NextPageWithLayout } from '@/types';
-import { NextSeo } from 'next-seo';
+import ActiveLink from '@/components/ui/links/active-link';
 import Button from '@/components/ui/button';
 import CoinInput from '@/components/ui/coin-input';
-import TransactionInfo from '@/components/ui/transaction-info';
+import type { NextPageWithLayout } from '@/types';
+import { NextSeo } from 'next-seo';
 import { Plus } from '@/components/icons/plus';
-import ActiveLink from '@/components/ui/links/active-link';
-import Trade from '@/components/ui/trade';
 import RootLayout from '@/layouts/_root-layout';
+import Trade from '@/components/ui/trade';
+import TransactionInfo from '@/components/ui/transaction-info';
 
 const LiquidityPage: NextPageWithLayout = () => {
   return (
     <>
       <NextSeo
-        title="Liquidity"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
+        title="Liquidity - Poppy Finance"
+        description="Poppy Finance - Crypto Dashboard"
       />
       <Trade>
         <div className="mb-5 border-b border-dashed border-gray-200 pb-5 dark:border-gray-800 xs:mb-7 xs:pb-6">
@@ -24,7 +24,7 @@ const LiquidityPage: NextPageWithLayout = () => {
               defaultCoinIndex={0}
               getCoinValue={(data) => console.log('From coin value:', data)}
             />
-            <div className="absolute top-1/2 left-1/2 z-[1] -mt-4 -ml-4 rounded-full bg-white shadow-large dark:bg-gray-600">
+            <div className="absolute left-1/2 top-1/2 z-[1] -ml-4 -mt-4 rounded-full bg-white shadow-large dark:bg-gray-600">
               <Button
                 size="mini"
                 color="gray"

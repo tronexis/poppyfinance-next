@@ -14,8 +14,10 @@ const FarmsPage: NextPageWithLayout = () => {
         title="Farm - Poppy Finance"
         description="Poppy Finance - Crypto Dashboard"
       />
-      {layout === LAYOUT_OPTIONS.POPPY && <LivePricingSlider limits={4} />}
-      <Farms />
+      <div className="mx-auto max-w-screen-2xl">
+        {layout === LAYOUT_OPTIONS.POPPY && <LivePricingSlider limits={4} />}
+        <Farms />
+      </div>
     </>
   );
 };

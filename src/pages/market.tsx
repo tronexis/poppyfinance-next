@@ -78,8 +78,10 @@ function CoinPrices() {
         title="Market - Poppy Finance"
         description="Poppy Finance - Dashboard"
       />
-      <LivePricingSlider limits={4} />
-      <CryptocurrencyPricingTable />
+      <div className="mx-auto max-w-screen-2xl">
+        <LivePricingSlider limits={4} />
+        <CryptocurrencyPricingTable />
+      </div>
     </>
   );
 }

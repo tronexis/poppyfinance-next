@@ -150,7 +150,7 @@ function CryptocurrencyAccordionTable({
           </Scrollbar>
         </div>
         <div
-          className={`-mt-[2px] flex items-center justify-center rounded-bl-lg rounded-br-lg bg-white px-5 py-4 text-sm shadow-card dark:bg-light-dark lg:py-6`}
+          className={`-mt-[2px] flex items-center justify-center rounded-b-lg bg-white px-5 py-4 text-sm shadow-card dark:bg-light-dark lg:py-6`}
         >
           <div className="flex items-center gap-5">
             <Button

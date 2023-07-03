@@ -1,23 +1,27 @@
-import type {AppProps} from 'next/app';
-import type {NextPageWithLayout} from '@/types';
-// import { Fira_Code } from 'next/font/google';
-import Head from 'next/head';
-import {ThemeProvider} from 'next-themes';
-import {QueryClient, QueryClientProvider} from 'react-query';
-import ModalsContainer from '@/components/modal-views/container';
-import DrawersContainer from '@/components/drawer-views/container';
-import SettingsButton from '@/components/settings/settings-button';
-import SettingsDrawer from '@/components/settings/settings-drawer';
-import {WalletProvider} from '@/lib/hooks/use-connect';
-import {CardanoProvider, UseCardanoOptions} from 'use-cardano'
 import 'overlayscrollbars/overlayscrollbars.css';
-// base css file
 import 'swiper/css';
 import 'swiper/css/pagination';
 import '@/assets/css/scrollbar.css';
 import '@/assets/css/globals.css';
 import '@/assets/css/range-slider.css';
-import {useState} from 'react';
+
+import { CardanoProvider, UseCardanoOptions } from 'use-cardano';
+import { QueryClient, QueryClientProvider } from 'react-query';
+
+import type { AppProps } from 'next/app';
+import DrawersContainer from '@/components/drawer-views/container';
+import Head from 'next/head';
+import ModalsContainer from '@/components/modal-views/container';
+import type { NextPageWithLayout } from '@/types';
+import SettingsButton from '@/components/settings/settings-button';
+import SettingsDrawer from '@/components/settings/settings-drawer';
+import { ThemeProvider } from 'next-themes';
+import { WalletProvider } from '@/lib/hooks/use-connect';
+import { useState } from 'react';
+
+// import { Fira_Code } from 'next/font/google';
+
+// base css file
 
 type AppPropsWithLayout = AppProps & {
   Component: NextPageWithLayout;
@@ -25,12 +29,12 @@ type AppPropsWithLayout = AppProps & {
 
 export const options: UseCardanoOptions = {
   node: {
-    provider: "blockfrost",
-    projectId: "preprodOr3zZOkFc8Sqa5sp3aa9oGTb1wxulzhy"
+    provider: 'blockfrost',
+    projectId: 'preprodOr3zZOkFc8Sqa5sp3aa9oGTb1wxulzhy',
   },
-  testnetNetwork: "Preprod",
-  allowedNetworks: ["Testnet"]
-}
+  testnetNetwork: 'Preprod',
+  allowedNetworks: ['Testnet'],
+};
 
 // const firaCode = Fira_Code({
 //   weight: ['400', '500', '700'],
@@ -39,7 +43,7 @@ export const options: UseCardanoOptions = {
 //   variable: '--font-body',
 // });
 
-function CustomApp({Component, pageProps}: AppPropsWithLayout) {
+function CustomApp({ Component, pageProps }: AppPropsWithLayout) {
   //could remove this if you don't need to page level layout
   const getLayout = Component.getLayout ?? ((page) => page);
   const [queryClient] = useState(() => new QueryClient());
@@ -51,7 +55,7 @@ function CustomApp({Component, pageProps}: AppPropsWithLayout) {
           name="viewport"
           content="width=device-width, initial-scale=1 maximum-scale=1"
         />
-        <title>Criptic - React Next Web3 NFT Crypto Dashboard Template</title>
+        <title>Poppy Finance</title>
       </Head>
       <QueryClientProvider client={queryClient}>
         <ThemeProvider
@@ -60,7 +64,6 @@ function CustomApp({Component, pageProps}: AppPropsWithLayout) {
           defaultTheme="light"
         >
           <CardanoProvider options={options}>
-
             <WalletProvider>
               {/* <div className={`${firaCode.variable} font-body`}> */}
               {getLayout(<Component {...pageProps} />)}
