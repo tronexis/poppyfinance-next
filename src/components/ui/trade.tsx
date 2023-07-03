@@ -1,17 +1,21 @@
-import { useState, useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
-import { motion, AnimatePresence } from 'framer-motion';
-import cn from 'classnames';
-import routes from '@/config/routes';
-import Button from '@/components/ui/button';
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+
 import ActiveLink from '@/components/ui/links/active-link';
 import AnchorLink from '@/components/ui/links/anchor-link';
-import { RangeIcon } from '@/components/icons/range-icon';
+import Button from '@/components/ui/button';
 import { ExportIcon } from '@/components/icons/export-icon';
+import { LAYOUT_OPTIONS } from '@/lib/constants';
+import { RangeIcon } from '@/components/icons/range-icon';
+import cn from 'classnames';
+import dynamic from 'next/dynamic';
+import { fadeInBottom } from '@/lib/framer-motion/fade-in-bottom';
+import routes from '@/config/routes';
 import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 import { useIsMounted } from '@/lib/hooks/use-is-mounted';
-import { fadeInBottom } from '@/lib/framer-motion/fade-in-bottom';
+import { useLayout } from '@/lib/hooks/use-layout';
+import { useRouter } from 'next/router';
+
 // dynamic import
 const Listbox = dynamic(() => import('@/components/ui/list-box'));
 
@@ -24,14 +28,16 @@ const tradeMenu = [
     name: 'Liquidity',
     value: routes.liquidity,
   },
-  {
-    name: 'Vote',
-    value: routes.vote,
-  },
+  // {
+  //   name: 'Vote',
+  //   value: routes.vote,
+  // },
 ];
 
 function ActiveNavLink({ href, title, isActive, className }: any) {
   const router = useRouter();
+  const { layout } = useLayout();
+
   const {
     query: { ...restQuery },
   } = router;
@@ -39,15 +45,18 @@ function ActiveNavLink({ href, title, isActive, className }: any) {
     <ActiveLink
       href={{ pathname: href, query: restQuery }}
       className={cn(
-        'relative z-[1] inline-flex items-center py-1.5 px-3',
+        'relative z-[1] inline-flex items-center px-3 py-1.5',
         className
       )}
-      activeClassName="font-medium text-white"
+      activeClassName={cn(
+        'font-medium',
+        layout === LAYOUT_OPTIONS.POPPY ? 'text-black' : 'text-white'
+      )}
     >
       <span>{title}</span>
       {isActive && (
         <motion.span
-          className="absolute left-0 right-0 bottom-0 -z-[1] h-full w-full rounded-lg bg-brand shadow-large"
+          className="absolute bottom-0 left-0 right-0 -z-[1] h-full w-full rounded-lg bg-brand shadow-large"
           layoutId="activeNavLinkIndicator"
         />
       )}
@@ -105,7 +114,7 @@ export default function Trade({ children }: React.PropsWithChildren<{}>) {
             ))}
             <AnchorLink
               href="/"
-              className="inline-flex items-center gap-1.5 py-1.5 px-3"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5"
             >
               Charts
               <ExportIcon className="h-auto w-2.5" />
