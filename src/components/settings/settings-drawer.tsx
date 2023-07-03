@@ -226,11 +226,12 @@ function LayoutSwitcher() {
 
 // Component: ColorSwitcher
 function ColorSwitcher() {
+  const { layout } = useLayout();
   const [themeColor, setThemeColor] = useLocalStorage(
     'criptic-color',
-    '#323743'
+    '#FFD17C'
   );
-  useThemeColor(themeColor ? themeColor : '#323743');
+  useThemeColor(themeColor ? themeColor : '#FFD17C');
   return (
     <div className="px-6 pt-8">
       <h4 className="mb-4 text-sm font-medium text-gray-900 dark:text-white">

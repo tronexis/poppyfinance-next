@@ -19,7 +19,7 @@ export const menuItems = [
   {
     name: 'Market',
     icon: <LivePricing />,
-    href: routes.livePricing,
+    href: routes.market,
   },
   {
     name: 'Farm',
