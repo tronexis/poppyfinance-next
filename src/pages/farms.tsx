@@ -11,8 +11,8 @@ const FarmsPage: NextPageWithLayout = () => {
   return (
     <>
       <NextSeo
-        title="Farms"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
+        title="Farm - Poppy Finance"
+        description="Poppy Finance - Crypto Dashboard"
       />
       {layout === LAYOUT_OPTIONS.POPPY && <LivePricingSlider limits={4} />}
       <Farms />
