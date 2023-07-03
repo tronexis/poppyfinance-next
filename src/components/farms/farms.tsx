@@ -1,20 +1,21 @@
-import Button from '@/components/ui/button';
-import FarmList from '@/components/farms/list';
-import ActiveLink from '@/components/ui/links/active-link';
-import { FarmsData } from '@/data/static/farms-data';
 import { Fragment, useState } from 'react';
-import { motion } from 'framer-motion';
-import cn from 'classnames';
-import { Transition } from '@/components/ui/transition';
-import { RadioGroup } from '@/components/ui/radio-group';
-import { Listbox } from '@/components/ui/listbox';
-import { Switch } from '@/components/ui/switch';
+
+import ActiveLink from '@/components/ui/links/active-link';
+import Button from '@/components/ui/button';
 import { ChevronDown } from '@/components/icons/chevron-down';
-import { SearchIcon } from '@/components/icons/search';
-import { useLayout } from '@/lib/hooks/use-layout';
-import { LAYOUT_OPTIONS } from '@/lib/constants';
+import FarmList from '@/components/farms/list';
+import { FarmsData } from '@/data/static/farms-data';
 import HorizontalThreeDots from '@/components/icons/horizontal-three-dots';
+import { LAYOUT_OPTIONS } from '@/lib/constants';
+import { Listbox } from '@/components/ui/listbox';
+import { RadioGroup } from '@/components/ui/radio-group';
+import { SearchIcon } from '@/components/icons/search';
+import { Switch } from '@/components/ui/switch';
+import { Transition } from '@/components/ui/transition';
+import cn from 'classnames';
+import { motion } from 'framer-motion';
 import routes from '@/config/routes';
+import { useLayout } from '@/lib/hooks/use-layout';
 
 const sort = [
   { id: 1, name: 'Hot' },
@@ -198,39 +199,46 @@ function Status() {
 export default function Farms() {
   const { layout } = useLayout();
   return (
-    <div className="mx-auto w-full">
-      <div
-        className={cn(
-          'mb-6 flex flex-col justify-between gap-4',
-          layout === LAYOUT_OPTIONS.RETRO
-            ? 'lg:flex-row lg:items-center lg:gap-6'
-            : 'md:flex-row md:items-center md:gap-6'
-        )}
-      >
-        <div className="flex items-center justify-between gap-4">
-          <Status />
-          <div
-            className={cn(
-              layout === LAYOUT_OPTIONS.RETRO ? 'lg:hidden' : 'md:hidden'
-            )}
-          >
-            <StackedSwitch />
+    <div
+      className={cn(
+        'mx-auto w-full',
+        layout === LAYOUT_OPTIONS.POPPY ? 'mt-4' : ''
+      )}
+    >
+      {layout !== LAYOUT_OPTIONS.POPPY && (
+        <div
+          className={cn(
+            'mb-6 flex flex-col justify-between gap-4',
+            layout === LAYOUT_OPTIONS.RETRO
+              ? 'lg:flex-row lg:items-center lg:gap-6'
+              : 'md:flex-row md:items-center md:gap-6'
+          )}
+        >
+          <div className="flex items-center justify-between gap-4">
+            <Status />
+            <div
+              className={cn(
+                layout === LAYOUT_OPTIONS.RETRO ? 'lg:hidden' : 'md:hidden'
+              )}
+            >
+              <StackedSwitch />
+            </div>
           </div>
-        </div>
 
-        <div className="flex items-center justify-between gap-4 lg:gap-8">
-          <div
-            className={cn(
-              'hidden shrink-0 ',
-              layout === LAYOUT_OPTIONS.RETRO ? 'lg:block' : 'md:block'
-            )}
-          >
-            <StackedSwitch />
+          <div className="flex items-center justify-between gap-4 lg:gap-8">
+            <div
+              className={cn(
+                'hidden shrink-0 ',
+                layout === LAYOUT_OPTIONS.RETRO ? 'lg:block' : 'md:block'
+              )}
+            >
+              <StackedSwitch />
+            </div>
+            <Search />
+            <SortList sortData={sort} />
           </div>
-          <Search />
-          <SortList sortData={sort} />
         </div>
-      </div>
+      )}
 
       <div className="mb-3 hidden grid-cols-3 gap-6 rounded-lg bg-white shadow-card dark:bg-light-dark sm:grid lg:grid-cols-5">
         <span className="px-6 py-6 text-sm tracking-wider text-gray-500 dark:text-gray-300">
