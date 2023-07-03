@@ -61,7 +61,8 @@ export const menuItems = [
   {
     name: 'My Info',
     icon: <ProfileIcon />,
-    href: routes.profile,
+    href: '',
+    // onClick: null,
   },
   // {
   //   name: 'Vote',

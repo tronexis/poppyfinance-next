@@ -1,3 +1,5 @@
+import { AnimatePresence, motion } from 'framer-motion';
+
 import ActiveLink from '@/components/ui/links/active-link';
 import { FlashIcon } from '@/components/icons/flash';
 import Hamburger from '@/components/ui/hamburger';
@@ -11,6 +13,7 @@ import routes from '@/config/routes';
 import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 import { useDrawer } from '@/components/drawer-views/context';
 import { useIsMounted } from '@/lib/hooks/use-is-mounted';
+import { useShowInfo } from '@/lib/hooks/use-show-info';
 import { useWindowScroll } from '@/lib/hooks/use-window-scroll';
 
 function NotificationButton() {
@@ -64,6 +67,7 @@ function HeaderRightArea() {
 }
 
 export function Header() {
+  const [showInfo] = useShowInfo();
   const isMounted = useIsMounted();
   const breakpoint = useBreakpoint();
   const windowScroll = useWindowScroll();
@@ -71,30 +75,96 @@ export function Header() {
   return (
     <nav
       className={cn(
-        'sticky top-0 z-30 flex w-full items-center justify-between px-4 transition-all duration-300 ltr:right-0 rtl:left-0 sm:px-6 lg:px-8 3xl:px-10',
+        'sticky top-0 z-30',
         isMounted && windowScroll.y > 10
-          ? 'h-16 bg-gradient-to-b from-primary to-primary/80 shadow-card backdrop-blur dark:from-dark dark:to-dark/80 sm:h-20'
-          : 'h-16 bg-primary dark:bg-dark sm:h-24',
-        'font-header'
+          ? 'bg-gradient-to-b from-primary to-primary/40 shadow-card backdrop-blur dark:from-dark dark:to-dark/80'
+          : 'bg-primary dark:bg-dark'
       )}
     >
-      <div className="mx-auto flex w-full max-w-[2160px] items-center justify-between">
-        <div className="flex items-center">
-          <div className="hidden lg:mr-6 lg:block xl:hidden">
-            <Hamburger
-              isOpen={isOpen}
-              onClick={() => openDrawer('DRAWER_MENU')}
-              color="white"
-              className="shadow-main dark:border dark:border-solid dark:border-gray-700 dark:bg-light-dark dark:text-white"
-            />
+      <div
+        className={cn(
+          'flex h-16 w-full items-center justify-between px-4 transition-all duration-300 ltr:right-0 rtl:left-0 sm:px-6 lg:px-8 3xl:px-10',
+          isMounted && windowScroll.y > 10 ? 'sm:h-20' : 'sm:h-24',
+          'font-header'
+        )}
+      >
+        <div className="mx-auto flex w-full max-w-[2160px] items-center justify-between">
+          <div className="flex items-center">
+            <div className="hidden lg:mr-6 lg:block xl:hidden">
+              <Hamburger
+                isOpen={isOpen}
+                onClick={() => openDrawer('DRAWER_MENU')}
+                color="white"
+                className="shadow-main dark:border dark:border-solid dark:border-gray-700 dark:bg-light-dark dark:text-white"
+              />
+            </div>
+            <Logo />
+            {isMounted &&
+              ['xs', 'sm', 'md', 'lg'].indexOf(breakpoint) == -1 && (
+                <MenuItems />
+              )}
           </div>
-          <Logo />
-          {isMounted && ['xs', 'sm', 'md', 'lg'].indexOf(breakpoint) == -1 && (
-            <MenuItems />
-          )}
+          <HeaderRightArea />
         </div>
-        <HeaderRightArea />
       </div>
+      <AnimatePresence initial={false}>
+        {showInfo && (
+          <motion.div
+            key="content"
+            initial="collapsed"
+            animate="open"
+            exit="collapsed"
+            variants={{
+              open: { opacity: 1, height: 'auto' },
+              collapsed: { opacity: 0, height: 0 },
+            }}
+            transition={{ duration: 0.4, ease: 'easeInOut' }}
+          >
+            <div className={cn('px-4 py-4 sm:px-8 sm:py-6')}>
+              <div className="mx-auto flex flex-col justify-between font-medium md:flex-row md:items-center xl:max-w-screen-md 2xl:max-w-screen-xl 2xl:px-10 2xl:text-lg">
+                <div className="">
+                  <h4>Portfolio</h4>
+                  <div className="flex items-center space-x-4 uppercase">
+                    <div className="">
+                      <small>Deposited</small>
+                      <p>13,634.35 ADA</p>
+                    </div>
+                    <div className="">
+                      <small>Monthly Yield</small>
+                      <p>13,634.35 ADA</p>
+                    </div>
+                    <div className="">
+                      <small>Daily Yield</small>
+                      <p>13,634.35 ADA</p>
+                    </div>
+                    <div className="">
+                      <small>Avg. APY</small>
+                      <p>10.6%</p>
+                    </div>
+                  </div>
+                </div>
+                <div className="md:text-right">
+                  <h4>Platform</h4>
+                  <div className="flex items-center space-x-4 uppercase">
+                    <div className="">
+                      <small>TVL</small>
+                      <p>17,423,243 ADA</p>
+                    </div>
+                    <div className="">
+                      <small>Vaults</small>
+                      <p>18</p>
+                    </div>
+                    <div className="">
+                      <small>Daily Buyback</small>
+                      <p>3,634.35 ADA</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }
