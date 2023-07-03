@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { ChevronDown } from '@/components/icons/chevron-down';
-import { LongArrowRight } from '@/components/icons/long-arrow-right';
-import Button from '@/components/ui/button';
-import Scrollbar from '@/components/ui/scrollbar';
-import GlobalFilter from '@/components/cryptocurrency-pricing-table/global-filter';
 import {
-  useTable,
-  useResizeColumns,
   useFlexLayout,
-  useSortBy,
-  usePagination,
   useGlobalFilter,
+  usePagination,
+  useResizeColumns,
+  useSortBy,
+  useTable,
 } from 'react-table';
-import { LongArrowLeft } from '@/components/icons/long-arrow-left';
+
+import Button from '@/components/ui/button';
+import { ChevronDown } from '@/components/icons/chevron-down';
 import CryptocurrencyDrawer from '@/components/cryptocurrency-pricing-table/cryptocurrency-drawer';
+import GlobalFilter from '@/components/cryptocurrency-pricing-table/global-filter';
+import { LongArrowLeft } from '@/components/icons/long-arrow-left';
+import { LongArrowRight } from '@/components/icons/long-arrow-right';
+import Scrollbar from '@/components/ui/scrollbar';
 
 function CryptocurrencyAccordionTable({
   // @ts-ignore
@@ -53,17 +54,17 @@ function CryptocurrencyAccordionTable({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="relative z-20 mt-11 flex flex-col overflow-hidden rounded-lg shadow-card lg:flex-row">
+    <div className="relative z-20 mt-2 flex flex-col overflow-hidden rounded-lg lg:flex-row">
       <div className="w-full transform transition duration-300 ease-in">
         <div className="-mx-0.5 shadow-card dark:[&_.os-scrollbar_.os-scrollbar-track_.os-scrollbar-handle:before]:!bg-white/50">
-          <div className="rounded-tl-lg rounded-tr-lg bg-white pt-6 dark:bg-light-dark md:px-6 md:pt-8">
+          <div className="rounded-tl-lg rounded-tr-lg pt-6 dark:bg-light-dark md:px-6 md:pt-8">
             <div
-              className={`flex items-center justify-between gap-4 border-b border-dashed border-gray-200 pb-5 dark:border-gray-700 ${
+              className={`flex items-center justify-between gap-4 border-b border-black pb-5 dark:border-gray-700 ${
                 !isOpen ? 'rounded-tr-lg' : ''
               }`}
             >
-              <h2 className="shrink-0 pl-[10px] text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:pl-0 2xl:text-xl 3xl:text-2xl">
-                Cryptocurrency Prices
+              <h2 className="shrink-0 pl-[10px] text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:pl-0 2xl:text-3xl">
+                Cardano Prices
               </h2>
               <GlobalFilter filter={globalFilter} setFilter={setGlobalFilter} />
             </div>
@@ -74,12 +75,12 @@ function CryptocurrencyAccordionTable({
                 {...getTableProps()}
                 className="-mt-[2px] w-full border-separate border-0"
               >
-                <thead className="pricing-table-head block bg-white px-[10px] text-sm text-gray-500 dark:bg-light-dark dark:text-gray-300 md:!px-6">
+                <thead className="pricing-table-head block px-[10px] text-sm text-gray-500 dark:bg-light-dark dark:text-gray-300 md:!px-6">
                   {headerGroups.map((headerGroup, idx) => (
                     <tr
                       {...headerGroup.getHeaderGroupProps()}
                       key={idx}
-                      className="border-b border-dashed border-gray-200 dark:border-gray-700"
+                      className="dark:border-b dark:border-gray-700"
                     >
                       {headerGroup.headers.map((column, idx) => (
                         <th
@@ -118,7 +119,7 @@ function CryptocurrencyAccordionTable({
                 </thead>
                 <tbody
                   {...getTableBodyProps()}
-                  className="pricing-table-body grid bg-white text-xs font-medium text-gray-900  dark:bg-light-dark dark:text-white md:px-6 3xl:text-sm"
+                  className="pricing-table-body grid rounded-t-lg bg-white pt-4 text-xs font-medium text-gray-900  dark:bg-light-dark dark:text-white md:px-6 3xl:text-sm"
                 >
                   {page.map((row, idx) => {
                     prepareRow(row);

@@ -3,20 +3,21 @@ import type {
   NextPageWithLayout,
   SettingsQueryOptions,
 } from '@/types';
-import RootLayout from '@/layouts/_root-layout';
-import { GetStaticProps } from 'next';
-import { dehydrate, QueryClient } from 'react-query';
+import { QueryClient, dehydrate } from 'react-query';
+
 import { API_ENDPOINTS } from '@/data/utils/endpoints';
-import client from '@/data/utils';
-import { useCoins } from '@/hooks/useCoin';
-import { NextSeo } from 'next-seo';
-import { useLayout } from '@/lib/hooks/use-layout';
-import { LAYOUT_OPTIONS } from '@/lib/constants';
-import CryptocurrencyPricingTable from '@/components/cryptocurrency-pricing-table/cryptocurrency-pricing-table';
-import LivePricingSlider from '@/components/ui/live-pricing-slider';
-import LivePricingSliderRetro from '@/components/ui/live-pricing-slider-retro';
 import CryptoCurrencyPricingSkeleton from '@/components/ui/skeleton/CryptoCurrencyPricingSkeleton';
 import CryptocurrencyPricingRetroTable from '@/components/cryptocurrency-pricing-table/cryptocurrency-pricing-retro-table';
+import CryptocurrencyPricingTable from '@/components/cryptocurrency-pricing-table/cryptocurrency-pricing-table';
+import { GetStaticProps } from 'next';
+import { LAYOUT_OPTIONS } from '@/lib/constants';
+import LivePricingSlider from '@/components/ui/live-pricing-slider';
+import LivePricingSliderRetro from '@/components/ui/live-pricing-slider-retro';
+import { NextSeo } from 'next-seo';
+import RootLayout from '@/layouts/_root-layout';
+import client from '@/data/utils';
+import { useCoins } from '@/hooks/useCoin';
+import { useLayout } from '@/lib/hooks/use-layout';
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   const queryClient = new QueryClient();
@@ -74,8 +75,8 @@ function CoinPrices() {
   return (
     <>
       <NextSeo
-        title="Live Pricing"
-        description="Criptic - React Next Web3 NFT Crypto Dashboard Template"
+        title="Market - Poppy Finance"
+        description="Poppy Finance - Dashboard"
       />
       <LivePricingSlider limits={4} />
       <CryptocurrencyPricingTable />

@@ -1,19 +1,20 @@
 import React, { useState } from 'react';
-import { ChevronDown } from '@/components/icons/chevron-down';
-import { LongArrowRight } from '@/components/icons/long-arrow-right';
-import Button from '@/components/ui/button';
-import Scrollbar from '@/components/ui/scrollbar';
-import GlobalFilter from '@/components/cryptocurrency-pricing-table/global-filter';
 import {
-  useTable,
-  useResizeColumns,
   useFlexLayout,
-  useSortBy,
-  usePagination,
   useGlobalFilter,
+  usePagination,
+  useResizeColumns,
+  useSortBy,
+  useTable,
 } from 'react-table';
-import { LongArrowLeft } from '@/components/icons/long-arrow-left';
+
+import Button from '@/components/ui/button';
+import { ChevronDown } from '@/components/icons/chevron-down';
 import CryptocurrencyRetroDrawer from '@/components/cryptocurrency-pricing-table/cryptocurrency-retro-drawer';
+import GlobalFilter from '@/components/cryptocurrency-pricing-table/global-filter';
+import { LongArrowLeft } from '@/components/icons/long-arrow-left';
+import { LongArrowRight } from '@/components/icons/long-arrow-right';
+import Scrollbar from '@/components/ui/scrollbar';
 
 function CryptocurrencyDrawerTable({
   // @ts-ignore
@@ -63,7 +64,7 @@ function CryptocurrencyDrawerTable({
                   !isOpen ? 'rounded-tr-lg' : ''
                 }`}
               >
-                <h2 className="shrink-0 pl-[10px] text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:pl-0 2xl:text-xl 3xl:text-2xl">
+                <h2 className="shrink-0 pl-[10px] text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:pl-0 2xl:text-3xl">
                   Cryptocurrency Prices
                 </h2>
                 <GlobalFilter

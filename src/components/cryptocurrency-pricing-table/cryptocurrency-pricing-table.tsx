@@ -1,10 +1,10 @@
+import { CoinPriceData } from '@/data/static/coin-market-data';
+import CryptocurrencyAccordionTable from '@/components/cryptocurrency-pricing-table/cryptocurrency-accordion-table';
+import CryptocurrencyDrawerTable from '@/components/cryptocurrency-pricing-table/cryptocurrency-drawer-table';
 import React from 'react';
 import { Star } from '@/components/icons/star';
 import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 import { useIsMounted } from '@/lib/hooks/use-is-mounted';
-import CryptocurrencyAccordionTable from '@/components/cryptocurrency-pricing-table/cryptocurrency-accordion-table';
-import CryptocurrencyDrawerTable from '@/components/cryptocurrency-pricing-table/cryptocurrency-drawer-table';
-import { CoinPriceData } from '@/data/static/coin-market-data';
 
 const COLUMNS = [
   {
@@ -34,7 +34,9 @@ const COLUMNS = [
     Cell: ({ row }) => (
       <div className="flex items-center gap-2">
         {row.original.image}
-        <div className="ltr:text-left rtl:text-left">{row.original.name}</div>
+        <div className="text-base ltr:text-left rtl:text-left">
+          {row.original.name}
+        </div>
       </div>
     ),
     minWidth: 100,
