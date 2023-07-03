@@ -56,7 +56,9 @@ function ActiveNavLink({ href, title, isActive, className }: any) {
       <span>{title}</span>
       {isActive && (
         <motion.span
-          className="absolute bottom-0 left-0 right-0 -z-[1] h-full w-full rounded-lg bg-brand shadow-large"
+          className={cn(
+            'absolute bottom-0 left-0 right-0 -z-[1] h-full w-full rounded-lg bg-brand shadow-large'
+          )}
           layoutId="activeNavLinkIndicator"
         />
       )}

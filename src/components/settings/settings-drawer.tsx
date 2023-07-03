@@ -240,7 +240,7 @@ function ColorSwitcher() {
       <RadioGroup
         value={themeColor}
         onChange={setThemeColor}
-        className="grid grid-cols-3 gap-5 "
+        className="grid grid-cols-3 gap-5"
       >
         {ColorPreset.map((item, index) => (
           <RadioGroup.Option value={item.value} key={index}>

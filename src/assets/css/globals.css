@@ -4,7 +4,8 @@
 
 @layer base {
   :root {
-    --color-brand: 17 24 39;
+    --color-brand: 255 209 124;
+    /*--color-brand: 17 24 39;*/
   }
   html {
     /* @apply bg-body font-body; */

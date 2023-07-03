@@ -12,7 +12,7 @@ export default function SettingsButton() {
   const [direction] = useLocalStorage<string>('criptic-direction');
   const [themeColor] = useLocalStorage<string>('criptic-color');
   useDirection(direction ? direction : 'ltr');
-  useThemeColor(themeColor ? themeColor : '#14161a');
+  useThemeColor(themeColor ? themeColor : '#FFD17C');
   // set layout based on query param
   const router = useRouter();
   const { query } = router;
