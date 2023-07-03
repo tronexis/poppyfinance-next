@@ -43,12 +43,12 @@ export default function LiquidityChart({
       <h3 className="mb-1.5 text-sm uppercase tracking-wider text-gray-600 dark:text-gray-400 sm:mb-2 sm:text-base">
         {title}
       </h3>
-      <div className="mb-1 text-base font-medium text-gray-900 dark:text-white sm:text-xl">
+      <p className="mb-1 !text-2xl font-medium text-gray-900 dark:text-white sm:text-xl">
         {dailyLiquidity}
-      </div>
-      <div className="text-xs text-gray-600 dark:text-gray-400 sm:text-sm">
+      </p>
+      <p className="!text-lg text-gray-600 dark:text-gray-400 sm:text-sm">
         {formattedDate}
-      </div>
+      </p>
       <div className="mt-5 h-64 sm:mt-8 2xl:h-72 3xl:h-[340px] 4xl:h-[480px]">
         <ResponsiveContainer width="100%" height="100%">
           <AreaChart

@@ -1,9 +1,9 @@
-import cn from 'classnames';
-import { TopPoolsData } from '@/data/static/token-data';
-import CurrencySwapIcons from '@/components/ui/currency-swap-icons';
 import { CoinList } from '@/components/ui/currency-swap-icons';
-import { useLayout } from '@/lib/hooks/use-layout';
+import CurrencySwapIcons from '@/components/ui/currency-swap-icons';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
+import { TopPoolsData } from '@/data/static/token-data';
+import cn from 'classnames';
+import { useLayout } from '@/lib/hooks/use-layout';
 
 interface TopPoolsProps {
   limit?: number;
@@ -20,7 +20,7 @@ export default function TopPools({ limit }: TopPoolsProps) {
         }
       )}
     >
-      <h3 className="mb-6 text-base font-medium uppercase">Top Pools</h3>
+      <h3 className="mb-6 text-lg font-medium uppercase">Top Pools</h3>
       <div className="mb-5 flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
         <span className="col-span-2">Pool</span>
         <span>Volume</span>

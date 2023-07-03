@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import { format } from 'date-fns';
-import { BarChart, Bar, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
+import { Bar, BarChart, ResponsiveContainer, Tooltip, XAxis } from 'recharts';
+
 import { VolumeData } from '@/data/static/volume';
+import { format } from 'date-fns';
+import { useState } from 'react';
 
 function CustomAxis({ x, y, payload }: any) {
   const date = format(new Date(payload.value * 1000), 'd');
@@ -37,12 +38,12 @@ export default function VolumeChart({
       <h3 className="mb-1.5 text-sm uppercase tracking-wider text-gray-600 dark:text-gray-400 sm:mb-2 sm:text-base">
         Volume 24h
       </h3>
-      <div className="mb-1 text-base font-medium text-gray-900 dark:text-white sm:text-xl">
+      <p className="mb-1 !text-2xl font-medium text-gray-900 dark:text-white sm:text-xl">
         {dailyVolume}
-      </div>
-      <div className="text-xs text-gray-600 dark:text-gray-400 sm:text-sm">
+      </p>
+      <p className="!text-lg text-gray-600 dark:text-gray-400 sm:text-sm">
         {formattedDate}
-      </div>
+      </p>
       <div className="mt-5 h-56 sm:mt-8 md:mt-16 lg:mt-8 lg:h-64 2xl:h-72 3xl:h-[340px] 4xl:h-[480px]">
         <ResponsiveContainer width="100%" height="100%">
           <BarChart

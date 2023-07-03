@@ -1,19 +1,20 @@
 import React, { useEffect } from 'react';
-import cn from 'classnames';
 import {
-  useTable,
-  useResizeColumns,
   useFlexLayout,
-  useSortBy,
   usePagination,
+  useResizeColumns,
+  useSortBy,
+  useTable,
 } from 'react-table';
+
 import Button from '@/components/ui/button';
-import Scrollbar from '@/components/ui/scrollbar';
 import { ChevronDown } from '@/components/icons/chevron-down';
-import { LongArrowRight } from '@/components/icons/long-arrow-right';
-import { LongArrowLeft } from '@/components/icons/long-arrow-left';
 import { LinkIcon } from '@/components/icons/link-icon';
+import { LongArrowLeft } from '@/components/icons/long-arrow-left';
+import { LongArrowRight } from '@/components/icons/long-arrow-right';
+import Scrollbar from '@/components/ui/scrollbar';
 import { TransactionData } from '@/data/static/transaction-data';
+import cn from 'classnames';
 import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 import { useIsMounted } from '@/lib/hooks/use-is-mounted';
 
@@ -78,7 +79,7 @@ const COLUMNS = [
     // @ts-ignore
     Cell: ({ cell: { value } }) => (
       <div className="-tracking-[1px] ltr:text-right rtl:text-left">
-        <strong className="mb-0.5 flex justify-end text-base md:mb-1.5 md:text-lg lg:text-base 3xl:text-2xl">
+        <strong className="mb-0.5 flex justify-end font-number text-base md:mb-1.5 md:text-lg lg:text-base 3xl:text-2xl">
           {value.balance}
           <span className="inline-block ltr:ml-1.5 rtl:mr-1.5 md:ltr:ml-2 md:rtl:mr-2">
             BTC
@@ -127,9 +128,9 @@ export default function TransactionTable() {
 
   return (
     <div className="">
-      <div className="rounded-tl-lg rounded-tr-lg bg-white px-4 pt-6 dark:bg-light-dark md:px-8 md:pt-8">
-        <div className="flex flex-col items-center justify-between border-b border-dashed border-gray-200 pb-5 dark:border-gray-700 md:flex-row">
-          <h2 className="mb-3 shrink-0 text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:mb-0 md:text-2xl">
+      <div className="rounded-tl-lg rounded-tr-lg px-4 pt-6 dark:bg-light-dark md:px-8 md:pt-8">
+        <div className="flex flex-col items-center justify-between border-b border-black pb-5 dark:border-gray-700 md:flex-row">
+          <h2 className="mb-3 shrink-0 text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:mb-0 md:text-3xl">
             Transaction History
           </h2>
         </div>
@@ -150,7 +151,7 @@ export default function TransactionTable() {
                           column.getSortByToggleProps()
                         )}
                         key={idx}
-                        className="group  bg-white px-2 py-5 font-normal first:rounded-bl-lg last:rounded-br-lg ltr:first:pl-8 ltr:last:pr-8 rtl:first:pr-8 rtl:last:pl-8 dark:bg-light-dark md:px-4"
+                        className="group px-2 py-5 font-normal first:rounded-bl-lg last:rounded-br-lg ltr:first:pl-8 ltr:last:pr-8 rtl:first:pr-8 rtl:last:pl-8 dark:bg-light-dark md:px-4"
                       >
                         <div className="flex items-center">
                           {column.render('Header')}

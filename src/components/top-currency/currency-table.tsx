@@ -35,8 +35,8 @@ export default function TopCurrencyTable({
         <div className="mb-5 grid grid-cols-3 gap-4 text-sm text-gray-900 last:mb-0 dark:text-white">
           <div className="col-span-2 flex items-center gap-2">
             <span className="w-6 shrink-0">{value.icon}</span>
-            <span className="flex flex-col gap-0.5">
-              <span className="whitespace-nowrap text-xs font-medium capitalize">
+            <span className="flex flex-col">
+              <span className="whitespace-nowrap text-base font-medium capitalize">
                 {value.name}
               </span>
               <span className="text-xs font-normal text-gray-500 dark:text-gray-400">
@@ -180,9 +180,9 @@ export default function TopCurrencyTable({
 
   return (
     <div className="">
-      <div className="rounded-tl-lg rounded-tr-lg bg-white px-4 pt-6 dark:bg-light-dark md:px-8 md:pt-8">
-        <div className="flex flex-col items-center justify-between border-b border-dashed border-gray-200 pb-5 dark:border-gray-700 md:flex-row">
-          <h2 className="mb-3 shrink-0 text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:mb-0 md:text-2xl">
+      <div className="rounded-tl-lg rounded-tr-lg px-4 pt-6 dark:bg-light-dark md:px-8 md:pt-8">
+        <div className="flex flex-col items-center justify-between border-b border-black pb-5 dark:border-gray-700 md:flex-row">
+          <h2 className="mb-3 shrink-0 text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:mb-0 md:text-3xl">
             Top Cryptocurrency
           </h2>
         </div>
@@ -203,7 +203,7 @@ export default function TopCurrencyTable({
                           column.getSortByToggleProps()
                         )}
                         key={idx}
-                        className="group bg-white px-2 py-5 font-normal first:rounded-bl-lg last:rounded-br-lg ltr:first:pl-8 ltr:last:pr-8 rtl:first:pr-8 rtl:last:pl-8 dark:bg-light-dark md:px-4"
+                        className="group px-2 py-5 font-normal first:rounded-bl-lg last:rounded-br-lg ltr:first:pl-8 ltr:last:pr-8 rtl:first:pr-8 rtl:last:pl-8 dark:bg-light-dark md:px-4"
                       >
                         <div className="flex items-center">
                           {column.render('Header')}
