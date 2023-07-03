@@ -21,9 +21,9 @@ const HomePage: NextPageWithLayout<
 > = () => {
   const { layout } = useLayout();
 
-  // render poppy screen/page
-  if (layout === LAYOUT_OPTIONS.POPPY) {
-    return <PoppyScreen />;
+  // render modern screen/page
+  if (layout === LAYOUT_OPTIONS.MODERN) {
+    return <ModernScreen />;
   }
 
   // render minimal screen/page
@@ -41,8 +41,8 @@ const HomePage: NextPageWithLayout<
     return <RetroScreen />;
   }
 
-  // render default screen/page which is modern
-  return <ModernScreen />;
+  // render default screen/page which is poppy
+  return <PoppyScreen />;
 };
 
 HomePage.getLayout = function getLayout(page: any) {

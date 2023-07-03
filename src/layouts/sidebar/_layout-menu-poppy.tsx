@@ -71,11 +71,11 @@ export function MenuItems() {
             <ActiveLink
               href={{
                 pathname: item.href,
-                ...(layout !== LAYOUT_OPTIONS.MODERN && {
-                  query: {
-                    layout,
-                  },
-                }),
+                // ...(layout !== LAYOUT_OPTIONS.POPPY && {
+                //   query: {
+                //     layout,
+                //   },
+                // }),
               }}
               className="mx-3 text-[13px] font-medium capitalize text-gray-600 transition first:ml-0 last:mr-0 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white 2xl:mx-3 2xl:text-lg 3xl:mx-4"
               activeClassName="!text-gray-900 dark:!text-white !font-bold"

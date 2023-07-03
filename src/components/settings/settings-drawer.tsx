@@ -178,7 +178,7 @@ function LayoutSwitcher() {
     router.push(
       {
         pathname,
-        ...(value !== LAYOUT_OPTIONS.MODERN && {
+        ...(value !== LAYOUT_OPTIONS.POPPY && {
           query: {
             layout: value,
           },
@@ -188,7 +188,7 @@ function LayoutSwitcher() {
             view,
           },
         }),
-        ...(value !== LAYOUT_OPTIONS.MODERN &&
+        ...(value !== LAYOUT_OPTIONS.POPPY &&
           view !== undefined && {
             query: {
               layout: value,
@@ -206,7 +206,7 @@ function LayoutSwitcher() {
         Layout
       </h4>
       <RadioGroup
-        value={layout ?? LAYOUT_OPTIONS.MODERN}
+        value={layout ?? LAYOUT_OPTIONS.POPPY}
         onChange={(value) => handleLayoutChange(value)}
         className="grid grid-cols-2 gap-5 "
       >
