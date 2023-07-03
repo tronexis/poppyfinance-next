@@ -245,7 +245,7 @@ export default function Farms() {
           Pool
         </span>
         <span className="px-6 py-6 text-sm tracking-wider text-gray-500 dark:text-gray-300">
-          Earned
+          {layout === LAYOUT_OPTIONS.POPPY ? 'Deposited' : 'Earned'}
         </span>
         <span className="px-6 py-6 text-sm tracking-wider text-gray-500 dark:text-gray-300">
           APR
@@ -254,7 +254,7 @@ export default function Farms() {
           Liquidity
         </span>
         <span className="hidden px-4 py-6 text-sm tracking-wider text-gray-500 dark:text-gray-300 lg:block">
-          Multiplier
+          {layout === LAYOUT_OPTIONS.POPPY ? 'Rewards' : 'Multiplier'}
         </span>
       </div>
 

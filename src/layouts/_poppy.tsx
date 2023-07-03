@@ -42,12 +42,12 @@ function HeaderRightArea() {
           <div>
             <LanguageButton
               variant="transparent"
-              className="!text-black dark:text-white"
+              className="!dark:text-white !text-black"
             />
           </div>
         )}
         {/* <NotificationButton /> */}
-        <WalletConnect btnClassName="!bg-[#6CA369] rounded-xl capitalize !text-lg" />
+        <WalletConnect btnClassName="!bg-[#6CA369] !text-white rounded-xl capitalize !text-lg" />
       </div>
 
       <div className="flex items-center lg:hidden">

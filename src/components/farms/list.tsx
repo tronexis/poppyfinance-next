@@ -1,8 +1,11 @@
-import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import CurrencySwapIcons from '@/components/ui/currency-swap-icons';
+import { AnimatePresence, motion } from 'framer-motion';
+
 import { CoinList } from '@/components/ui/currency-swap-icons';
+import CurrencySwapIcons from '@/components/ui/currency-swap-icons';
+import { LAYOUT_OPTIONS } from '@/lib/constants';
 import TransactionInfo from '@/components/ui/transaction-info';
+import { useLayout } from '@/lib/hooks/use-layout';
+import { useState } from 'react';
 
 interface FarmListTypes {
   from: string;
@@ -22,6 +25,7 @@ export default function FarmList({
   multiplier,
   children,
 }: React.PropsWithChildren<FarmListTypes>) {
+  const { layout } = useLayout();
   let [isExpand, setIsExpand] = useState(false);
   const setFrom = from as CoinList;
   const setTo = to as CoinList;
@@ -53,7 +57,11 @@ export default function FarmList({
           {liquidity}
         </div>
         <div className="hidden px-4 text-xs font-medium uppercase tracking-wider text-black dark:text-white sm:px-8 sm:text-sm lg:block">
-          {multiplier}
+          {layout === LAYOUT_OPTIONS.POPPY ? (
+            <span>Your Rewards</span>
+          ) : (
+            multiplier
+          )}
         </div>
       </div>
       <AnimatePresence initial={false}>

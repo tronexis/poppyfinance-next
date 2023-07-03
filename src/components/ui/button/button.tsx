@@ -1,8 +1,12 @@
-import { useState, useRef, forwardRef, useImperativeHandle } from 'react';
-import cn from 'classnames';
+import { LoaderSizeTypes, LoaderVariantTypes } from '@/components/ui/loader';
+import { forwardRef, useImperativeHandle, useRef, useState } from 'react';
+
 import ButtonDrip from '@/components/ui/button/button-drip';
 import ButtonLoader from '@/components/ui/button/button-loader';
-import { LoaderSizeTypes, LoaderVariantTypes } from '@/components/ui/loader';
+import { LAYOUT_OPTIONS } from '@/lib/constants';
+import cn from 'classnames';
+import { useLayout } from '@/lib/hooks/use-layout';
+
 type ShapeNames = 'rounded' | 'pill' | 'circle';
 type VariantNames = 'ghost' | 'solid' | 'transparent';
 type ColorNames =
@@ -74,6 +78,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     },
     ref: React.Ref<HTMLButtonElement | null>
   ) => {
+    const { layout } = useLayout();
+
     let [dripShow, setDripShow] = useState<boolean>(false);
     let [dripX, setDripX] = useState<number>(0);
     let [dripY, setDripY] = useState<number>(0);
@@ -136,6 +142,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
           color === 'white' || color === 'gray'
             ? 'text-gray-900 dark:text-white'
             : variants[variant],
+          layout === LAYOUT_OPTIONS.POPPY ? '!dark:text-white !text-black' : '',
           shapes[shape],
           shape === 'circle' ? `${sizeClassNames[1]}` : `${sizeClassNames[0]}`,
           className
