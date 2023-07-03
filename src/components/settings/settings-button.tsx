@@ -1,11 +1,11 @@
-import { useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { useLocalStorage } from '@/lib/hooks/use-local-storage';
-import { useDirection } from '@/lib/hooks/use-direction';
-import { useThemeColor } from '@/lib/hooks/use-theme-color';
-import { useSettingsDrawer } from '@/components/settings/settings-context';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
+import { useDirection } from '@/lib/hooks/use-direction';
+import { useEffect } from 'react';
 import { useLayout } from '@/lib/hooks/use-layout';
+import { useLocalStorage } from '@/lib/hooks/use-local-storage';
+import { useRouter } from 'next/router';
+import { useSettingsDrawer } from '@/components/settings/settings-context';
+import { useThemeColor } from '@/lib/hooks/use-theme-color';
 
 export default function SettingsButton() {
   const { opeSettings } = useSettingsDrawer();
@@ -19,7 +19,7 @@ export default function SettingsButton() {
   const selectedLayout = query?.layout && (query.layout as string);
   const { setLayout } = useLayout();
   useEffect(() => {
-    setLayout(selectedLayout ?? LAYOUT_OPTIONS.MODERN);
+    setLayout(selectedLayout ?? LAYOUT_OPTIONS.POPPY);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [query?.layout]);
   return (
@@ -60,7 +60,7 @@ export default function SettingsButton() {
               fill="currentColor"
             />
           </svg>
-          <span className="absolute top-1 right-1 flex h-3 w-3 items-center justify-center">
+          <span className="absolute right-1 top-1 flex h-3 w-3 items-center justify-center">
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-red-400 opacity-80"></span>
             <span className="relative inline-flex h-2 w-2 rounded-full bg-red-500"></span>
           </span>

@@ -39,9 +39,13 @@ export default function RootLayout({
   // fix the `Hydration failed because the initial UI does not match` issue
   if (!isMounted) return null;
 
-  // render poppy layout
-  if (layout === LAYOUT_OPTIONS.POPPY) {
-    return <PoppyLayout>{children}</PoppyLayout>;
+  // render modern layout
+  if (layout === LAYOUT_OPTIONS.MODERN) {
+    return (
+      <ModernLayout contentClassName={contentClassName}>
+        {children}
+      </ModernLayout>
+    );
   }
 
   // render minimal layout
@@ -65,8 +69,6 @@ export default function RootLayout({
     );
   }
 
-  // render default layout which is modern
-  return (
-    <ModernLayout contentClassName={contentClassName}>{children}</ModernLayout>
-  );
+  // render default layout which is poppy
+  return <PoppyLayout>{children}</PoppyLayout>;
 }
