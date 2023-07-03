@@ -208,7 +208,7 @@ export default function Farms() {
   return (
     <div
       className={cn(
-        'mx-auto w-full',
+        'mx-auto w-full rounded-lg bg-white/80 p-6 shadow-card',
         layout === LAYOUT_OPTIONS.POPPY ? 'mt-4' : ''
       )}
     >
@@ -216,7 +216,7 @@ export default function Farms() {
       {
         <div
           className={cn(
-            'mb-6 flex flex-col justify-between gap-4',
+            'flex flex-col justify-between gap-4 px-4',
             layout === LAYOUT_OPTIONS.RETRO
               ? 'lg:flex-row lg:items-center lg:gap-6'
               : 'md:flex-row md:items-center md:gap-6'
@@ -224,7 +224,7 @@ export default function Farms() {
         >
           <div className="flex items-center justify-between gap-4">
             {layout === LAYOUT_OPTIONS.POPPY ? (
-              <h2 className="shrink-0 pl-[10px] text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:pl-0 2xl:text-xl 3xl:text-2xl">
+              <h2 className="shrink-0 pl-[10px] text-lg font-medium uppercase text-black dark:text-white sm:text-xl md:pl-0 2xl:text-3xl">
                 Current Farms
               </h2>
             ) : (
@@ -258,7 +258,7 @@ export default function Farms() {
         </div>
       }
 
-      <div className="mb-3 hidden grid-cols-3 gap-6 rounded-lg bg-white shadow-card dark:bg-light-dark sm:grid lg:grid-cols-5">
+      <div className="mb-3 hidden grid-cols-3 gap-6 border-b border-black/50 dark:bg-light-dark sm:grid lg:grid-cols-5">
         <span className="px-6 py-6 text-sm tracking-wider text-gray-500 dark:text-gray-300">
           Pool
         </span>

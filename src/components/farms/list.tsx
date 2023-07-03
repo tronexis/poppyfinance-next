@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 
+import { ChevronDown } from '../icons/chevron-down';
 import { CoinList } from '@/components/ui/currency-swap-icons';
 import CurrencySwapIcons from '@/components/ui/currency-swap-icons';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
@@ -58,7 +59,12 @@ export default function FarmList({
         </div>
         <div className="hidden px-4 text-xs font-medium uppercase tracking-wider text-black dark:text-white sm:px-8 sm:text-sm lg:block">
           {layout === LAYOUT_OPTIONS.POPPY ? (
-            <span>Your Rewards</span>
+            <span className="flex items-center space-x-1">
+              <span>Your Rewards</span>
+              <span>
+                <ChevronDown />
+              </span>
+            </span>
           ) : (
             multiplier
           )}
