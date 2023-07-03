@@ -105,22 +105,24 @@ export default function Trade({ children }: React.PropsWithChildren<{}>) {
               </button>
             </Listbox>
           )}
-          <div className="hidden items-center justify-between text-gray-600 dark:text-gray-400 sm:flex">
-            {tradeMenu.map((item) => (
-              <ActiveNavLink
-                key={item.name}
-                href={item.value}
-                title={item.name}
-                isActive={item.value === router.pathname}
-              />
-            ))}
-            <AnchorLink
-              href="/"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5"
-            >
-              Charts
-              <ExportIcon className="h-auto w-2.5" />
-            </AnchorLink>
+          <div className="hidden items-center justify-between gap-4 text-gray-600 dark:text-gray-400 sm:flex">
+            <div className="flex items-center gap-4">
+              {tradeMenu.map((item) => (
+                <ActiveNavLink
+                  key={item.name}
+                  href={item.value}
+                  title={item.name}
+                  isActive={item.value === router.pathname}
+                />
+              ))}
+              <AnchorLink
+                href="/"
+                className="inline-flex items-center gap-1.5 px-3 py-1.5"
+              >
+                Charts
+                <ExportIcon className="h-auto w-2.5" />
+              </AnchorLink>
+            </div>
             <Button
               variant="transparent"
               shape="circle"
