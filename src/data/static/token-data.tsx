@@ -1,10 +1,10 @@
 import { Bitcoin } from '@/components/icons/bitcoin';
-import { Ethereum } from '@/components/icons/ethereum';
-import { Tether } from '@/components/icons/tether';
 import { Bnb } from '@/components/icons/bnb';
-import { Usdc } from '@/components/icons/usdc';
 import { Cardano } from '@/components/icons/cardano';
 import { Doge } from '@/components/icons/doge';
+import { Ethereum } from '@/components/icons/ethereum';
+import { Tether } from '@/components/icons/tether';
+import { Usdc } from '@/components/icons/usdc';
 
 export const TopTokensData = [
   {
@@ -52,6 +52,66 @@ export const TopTokensData = [
 ];
 
 export const TopPoolsData = [
+  {
+    from: 'BTC',
+    to: 'USDC',
+    volume: '434.2M',
+  },
+  {
+    from: 'USDT',
+    to: 'DOGE',
+    volume: '356.4M',
+  },
+  {
+    from: 'ADA',
+    to: 'BNB',
+    volume: '295.6M',
+  },
+  {
+    from: 'USDT',
+    to: 'USDC',
+    volume: '402.5M',
+  },
+  {
+    from: 'ETH',
+    to: 'DOGE',
+    volume: '590.2M',
+  },
+  {
+    from: 'BTC',
+    to: 'ADA',
+    volume: '104.6M',
+  },
+  {
+    from: 'BTC',
+    to: 'USDC',
+    volume: '434.2M',
+  },
+  {
+    from: 'USDT',
+    to: 'DOGE',
+    volume: '356.4M',
+  },
+  {
+    from: 'ADA',
+    to: 'BNB',
+    volume: '295.6M',
+  },
+  {
+    from: 'USDT',
+    to: 'USDC',
+    volume: '402.5M',
+  },
+  {
+    from: 'ETH',
+    to: 'DOGE',
+    volume: '590.2M',
+  },
+  {
+    from: 'BTC',
+    to: 'ADA',
+    volume: '104.6M',
+  },
   {
     from: 'BTC',
     to: 'USDC',

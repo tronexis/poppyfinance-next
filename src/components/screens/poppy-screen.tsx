@@ -21,16 +21,16 @@ import { useBreakpoint } from '@/lib/hooks/use-breakpoint';
 const topPoolsLimit = (breakpoint: string) => {
   switch (breakpoint) {
     case 'md':
-      return 5;
+      return 15;
     case '2xl':
-      return 5;
+      return 15;
     default:
-      return 4;
+      return 15;
   }
 };
 
 export default function PoppyScreen() {
-  const [limit, setLimit] = useState(4);
+  const [limit, setLimit] = useState(15);
   const breakpoint = useBreakpoint();
   useEffect(() => {
     setLimit(topPoolsLimit(breakpoint));
