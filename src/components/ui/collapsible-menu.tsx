@@ -1,11 +1,12 @@
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import cn from 'classnames';
-import { motion } from 'framer-motion';
-import { useMeasure } from '@/lib/hooks/use-measure';
+import { useEffect, useState } from 'react';
+
 import ActiveLink from '@/components/ui/links/active-link';
 import { ChevronDown } from '@/components/icons/chevron-down';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
+import cn from 'classnames';
+import { motion } from 'framer-motion';
+import { useMeasure } from '@/lib/hooks/use-measure';
+import { useRouter } from 'next/router';
 
 type MenuItemProps = {
   name?: string;
@@ -50,7 +51,7 @@ export function MenuItem({
             className={cn(
               'relative flex h-12 cursor-pointer items-center justify-between whitespace-nowrap  rounded-lg px-4 text-sm transition-all',
               isChildrenActive
-                ? 'text-white'
+                ? '!text-black'
                 : 'text-gray-500 hover:text-brand dark:hover:text-white'
             )}
             onClick={() => setIsOpen(!isOpen)}
@@ -121,7 +122,7 @@ export function MenuItem({
               'bg-brand': isActive,
             }
           )}
-          activeClassName="!text-white"
+          activeClassName="!text-black"
         >
           <span
             className={cn(

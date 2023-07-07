@@ -33,7 +33,7 @@ function HeaderRightArea() {
   const { openDrawer, isOpen } = useDrawer();
   return (
     <div className="order-last flex shrink-0 items-center">
-      <div className="ltr:mr-3.5 rtl:ml-3.5 ltr:sm:mr-5 rtl:sm:ml-5 xl:hidden">
+      <div className="ltr:mr-1 rtl:ml-1 ltr:sm:mr-5 rtl:sm:ml-5 xl:hidden">
         <LanguageButton
           color="white"
           className="shadow-main dark:border dark:border-solid dark:border-gray-700 dark:bg-light-dark dark:text-white"
@@ -54,12 +54,12 @@ function HeaderRightArea() {
       </div>
 
       <div className="flex items-center lg:hidden">
-        <NotificationButton />
+        {/* <NotificationButton /> */}
         <Hamburger
           isOpen={isOpen}
           onClick={() => openDrawer('DRAWER_MENU')}
           color="white"
-          className="shadow-main ltr:ml-3.5 rtl:mr-3.5 dark:border dark:border-solid dark:border-gray-700 dark:bg-light-dark dark:text-white ltr:sm:ml-5 rtl:sm:mr-5"
+          className="shadow-main ltr:ml-1 rtl:mr-1 dark:border dark:border-solid dark:border-gray-700 dark:bg-light-dark dark:text-white ltr:sm:ml-5 rtl:sm:mr-5"
         />
       </div>
     </div>

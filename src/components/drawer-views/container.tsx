@@ -1,13 +1,17 @@
+import { DRAWER_VIEW, useDrawer } from '@/components/drawer-views/context';
 import { Fragment, useEffect } from 'react';
-import dynamic from 'next/dynamic';
-import { useRouter } from 'next/router';
+
 import { Dialog } from '@/components/ui/dialog';
 import { Transition } from '@/components/ui/transition';
-import { DRAWER_VIEW, useDrawer } from '@/components/drawer-views/context';
+import dynamic from 'next/dynamic';
+import { useRouter } from 'next/router';
+
 // dynamic imports
 const Sidebar = dynamic(() => import('@/layouts/sidebar/_default'));
 const DrawerFilters = dynamic(() => import('@/components/search/filters'));
-const DrawerMenu = dynamic(() => import('@/layouts/sidebar/_layout-menu'));
+const DrawerMenu = dynamic(
+  () => import('@/layouts/sidebar/_layout-menu-poppy')
+);
 const PreviewContent = dynamic(
   () => import('@/components/create-nft/nft-preview-content')
 );

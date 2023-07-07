@@ -26,14 +26,14 @@ export default function Logo() {
             },
           }),
       }}
-      className="flex w-28 outline-none sm:w-64 4xl:w-72"
+      className="flex w-48 outline-none sm:w-64 4xl:w-72"
     >
       <span className="relative flex overflow-hidden">
         {isMounted && isDarkMode && (
-          <Image src={darkLogo} alt="Criptic" height={50} priority />
+          <Image src={darkLogo} alt="PoppyFinance Logo" height={50} priority />
         )}
         {isMounted && !isDarkMode && (
-          <Image src={lightLogo} alt="Criptic" height={50} priority />
+          <Image src={lightLogo} alt="PoppyFinance Logo" height={50} priority />
         )}
       </span>
     </AnchorLink>

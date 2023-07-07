@@ -4,7 +4,7 @@ import { ChevronDown } from '@/components/icons/chevron-down';
 import { Close } from '@/components/icons/close';
 import { Fragment } from 'react';
 import { LAYOUT_OPTIONS } from '@/lib/constants';
-import Logo from '@/components/ui/logo';
+import Logo from '@/components/ui/poppy-logo';
 import { Menu } from '@/components/ui/menu';
 import { MenuItem } from '@/components/ui/collapsible-menu';
 import Scrollbar from '@/components/ui/scrollbar';
